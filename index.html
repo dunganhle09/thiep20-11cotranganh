@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#3D5A36">
+<title>20/11 - Tri Ân Cô Trần Nguyễn Thục Trang Anh | 12 Anh 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Dancing+Script:wght@600&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F5F0DA;--paper:#FCFAEC;--teal:#3D5A36;--coral:#B5702F;--gold:#E3AC3B;--violet:#8F6BB0;--sage:#8DAF6E;--ink:#2B2622;--mute:#857A62;
+--serif:'Playfair Display',Georgia,serif;--sans:'Nunito',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:var(--serif);color:var(--ink);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .36 0 0 0 0 .2 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23n%29'/%3E%3C/svg%3E"),radial-gradient(ellipse at 15% 0%,rgba(230,179,60,.2),transparent 55%),radial-gradient(ellipse at 95% 100%,rgba(141,175,110,.25),transparent 55%),var(--cream);overflow-x:hidden;min-height:100vh}
+.fp{width:1em;height:1.2em;display:inline-block;vertical-align:middle}
+
+/* Cover: chiếc chuông thủy tinh + cái cây */
+#cover{position:fixed;inset:0;z-index:200;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(14px,3.2svh,26px);padding:18px;text-align:center;overflow:hidden;
+background:radial-gradient(circle at 50% 30%,rgba(255,251,226,.95),transparent 55%),linear-gradient(180deg,#FFF1B8 0%,#E4EDBF 55%,#F5F0DA 100%);
+transition:opacity .9s .1s,visibility .9s .1s;--w:min(250px,60vw,calc((100svh - 300px)/1.32))}
+#cover.hide{opacity:0;visibility:hidden;pointer-events:none}
+.cv-title{font-size:clamp(1.8rem,8.4vw,2.6rem);font-weight:800;line-height:1.15;color:var(--teal);text-shadow:0 2px 0 rgba(255,255,255,.7)}
+.cv-title em{font-weight:500;color:var(--coral)}
+.glass{position:relative;display:flex;flex-direction:column;align-items:center}
+.dome{position:relative;width:var(--w);height:calc(var(--w)*1.32);border-radius:calc(var(--w)/2) calc(var(--w)/2) 10px 10px;overflow:hidden;
+background:linear-gradient(180deg,#FFF3C2,#E9F2D0);border:1.5px solid rgba(255,255,255,.95);box-shadow:inset 0 0 28px rgba(255,255,255,.8),inset 0 -10px 24px rgba(61,90,54,.1),0 24px 46px rgba(61,90,54,.22)}
+.dome svg{position:absolute;inset:0;width:100%;height:100%}
+.dome::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(112deg,rgba(255,255,255,.65) 0,rgba(255,255,255,.1) 22%,transparent 30%,transparent 78%,rgba(255,255,255,.3) 100%)}
+.base{position:relative;width:calc(var(--w) + 46px);height:48px;margin-top:-3px;border-radius:7px;background:linear-gradient(180deg,#F6E3A8,#E3BC63 45%,#C99A3C);box-shadow:0 18px 28px rgba(61,90,54,.25),inset 0 1px 0 rgba(255,255,255,.8)}
+.base::before{content:"";position:absolute;inset:8px 52px 8px 14px;border-radius:3px;background:repeating-linear-gradient(90deg,rgba(120,80,20,.14) 0 1px,transparent 1px 4px)}
+.base::after{content:"";position:absolute;left:23px;right:23px;top:0;height:6px;background:rgba(80,52,12,.55);border-radius:0 0 4px 4px}
+.knob{position:absolute;right:14px;top:11px;width:26px;height:26px;border-radius:50%;background:radial-gradient(circle,#4A3510 0 6px,#F3DC94 7px 9px,#C99A3C 10px);box-shadow:0 2px 4px rgba(0,0,0,.3)}
+.waterbtn{display:inline-flex;align-items:center;gap:12px;padding:15px 30px;border-radius:999px;border:2px solid #C99A3C;cursor:pointer;color:var(--teal);font-family:var(--sans);font-weight:800;font-size:1rem;letter-spacing:.2em;text-transform:uppercase;background:rgba(255,255,255,.75);backdrop-filter:blur(4px);box-shadow:0 0 0 5px rgba(201,154,60,.18),0 14px 28px rgba(61,90,54,.22);animation:pulse 2.4s ease-in-out infinite}
+.waterbtn svg{width:22px;height:26px}
+.waterbtn:disabled{cursor:default;animation:none;opacity:.85}
+.waterbtn:focus-visible,#music:focus-visible{outline:3px solid var(--coral);outline-offset:4px}
+@keyframes pulse{50%{box-shadow:0 0 0 11px rgba(201,154,60,.14),0 14px 28px rgba(61,90,54,.22)}}
+/* cây lớn lên */
+.sprout{transform-box:fill-box;transform-origin:50% 100%;animation:sway 3s ease-in-out infinite;transition:opacity .5s,transform .5s}
+@keyframes sway{50%{transform:rotate(4deg)}}
+.grow .sprout{opacity:0;animation:none;transform:scale(.6)}
+.soil{transition:fill 1.2s}.grow .soil{fill:#7A5232}
+.tp{fill:none;stroke:#8A5A3B;stroke-linecap:round;stroke-dasharray:1 1;stroke-dashoffset:1;transition:stroke-dashoffset 1.3s ease-in-out var(--d)}
+.grow .tp{stroke-dashoffset:0}
+.lf,.bl{transform-box:fill-box;transform-origin:center;transform:scale(0);transition:transform .7s cubic-bezier(.34,1.56,.64,1) var(--d)}
+.grow .lf,.grow .bl{transform:scale(1)}
+.cloud{opacity:0}.grow .cloud{animation:cl 3s forwards}
+@keyframes cl{0%{opacity:0;transform:translateY(-14px)}15%,80%{opacity:1;transform:none}100%{opacity:0}}
+.rd{opacity:0}.grow .rd{animation:rain .8s ease-in var(--d) 3}
+@keyframes rain{0%{transform:translate(var(--x),58px);opacity:0}15%{opacity:1}100%{transform:translate(var(--x),270px);opacity:0}}
+#music{position:fixed;top:14px;right:14px;z-index:150;width:46px;height:46px;border-radius:50%;border:0;background:var(--coral);color:#fff;font-size:1.1rem;display:none;place-items:center;cursor:pointer;box-shadow:0 8px 20px rgba(181,112,47,.45)}
+
+/* Layout */
+.page{position:relative;z-index:10;max-width:480px;margin:0 auto;padding:44px 20px 60px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .9s,transform .9s}
+.reveal.in{opacity:1;transform:none}
+.tag{display:flex;align-items:center;justify-content:center;gap:12px;font-family:var(--sans);font-weight:800;font-size:.86rem;letter-spacing:.2em;color:var(--teal);margin-bottom:22px;text-transform:uppercase}
+.tag .fp{color:var(--coral);font-size:1.15rem}
+
+/* Hero */
+.hero{text-align:center;padding:30px 0 56px}
+.hero .quote{font-style:italic;font-size:1.12rem;line-height:1.6;color:#6B6358;max-width:340px;margin:0 auto 22px}
+.hero h2{font-size:2.45rem;line-height:1.14;font-weight:800;color:var(--teal);margin-bottom:26px}
+.hero h2 em{display:block;font-weight:500;color:var(--coral)}
+.to{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 14px;font-weight:700;font-size:1rem}
+.to .lab{font-family:var(--sans);font-size:.74rem;letter-spacing:.16em;color:var(--mute);text-transform:uppercase;margin-right:6px;font-weight:800}
+.to .dot{width:8px;height:8px;border-radius:50%;background:var(--coral)}
+.hint{margin-top:30px;font-family:var(--sans);font-weight:700;font-size:.84rem;color:var(--mute)}
+.hint b{display:block;color:var(--coral);font-size:1.2rem;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(6px)}}
+
+/* Letter */
+.letter{position:relative;background:linear-gradient(180deg,var(--paper),#F5EDE0);border-radius:10px;padding:46px 28px 34px;margin-bottom:76px;box-shadow:0 24px 50px rgba(60,45,30,.16),0 2px 0 rgba(61,90,54,.12);border:1px solid rgba(61,90,54,.15)}
+.letter::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:11px;background:radial-gradient(circle at 10px 0,var(--cream) 8px,transparent 8.6px) 0 0/20px 11px repeat-x}
+.letter h3{font-size:1.5rem;font-weight:700;color:var(--teal);margin-bottom:18px;line-height:1.3;padding-right:46px}
+.letter p{font-size:1.08rem;line-height:1.95;margin-bottom:16px}
+.letter p:first-of-type::first-letter{font-size:3rem;font-weight:800;color:var(--coral);float:left;line-height:.9;margin:6px 8px 0 0}
+.letter .kw{color:var(--teal);font-weight:700;background:linear-gradient(transparent 62%,rgba(227,172,59,.38) 62%)}
+.letter .sign{text-align:right;font-style:italic;color:var(--teal);margin:0}
+.sprig{position:absolute;top:-30px;right:6px;width:92px}
+
+/* Timeline */
+.tl{margin-bottom:76px}
+.tl h2{text-align:center;font-size:1.9rem;line-height:1.25;font-weight:700;color:var(--teal);margin-bottom:10px}
+.trail{position:relative;padding:6px 0}
+#wire{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:visible}
+#wire>path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+#wb{stroke:rgba(61,90,54,.12);stroke-width:2;stroke-dasharray:2 7}
+#wp,#wm,#wt{transition:stroke-dashoffset .45s ease-out}
+#wp{stroke:#6DBE6A;stroke-width:3.5}
+#wm{stroke:#9A6B3F;stroke-width:7}
+#wt{stroke:#7A4E2D;stroke-width:10}
+.dl{transform-box:fill-box;transform-origin:0% 50%;transform:scale(0);transition:transform .6s cubic-bezier(.34,1.56,.64,1)}
+.dl.on{transform:scale(var(--sc,1))}
+.dt{fill:none;stroke:#8A5A3B;stroke-width:3;stroke-linecap:round;stroke-dasharray:1 1;stroke-dashoffset:1;transition:stroke-dashoffset .9s ease-out}
+.dt.on{stroke-dashoffset:0}
+.db,.df{transform-box:fill-box;transform-origin:center;transform:scale(0);transition:transform .6s cubic-bezier(.34,1.56,.64,1)}
+.db.on{transform:scale(1)}.df.on{transform:scale(.8)}.df.on.big{transform:scale(1.15)}
+.node{position:relative;z-index:2;width:70%;margin-bottom:58px;opacity:0;transition:opacity 1s}
+.node.in{opacity:1}
+.node:last-child{margin-bottom:0}
+.node.L{margin-right:auto}.node.R{margin-left:auto}
+.pin{position:absolute;top:-8px;left:50%;margin-left:-9px;width:18px;height:18px;border-radius:50%;background:var(--paper);border:3px solid rgba(61,90,54,.35);z-index:3;transition:.5s}
+.pin.on{background:var(--coral);border-color:#fff;box-shadow:0 0 0 3px var(--coral),0 6px 14px rgba(181,112,47,.5);transform:scale(1.1)}
+.pol{background:var(--paper);padding:10px 10px 16px;border-radius:4px;box-shadow:0 18px 36px rgba(60,45,30,.2);border:1px solid rgba(61,90,54,.12)}
+.node.L .pol{transform:rotate(-2.2deg)}.node.R .pol{transform:rotate(2.2deg)}
+.pol img{display:block;width:100%;height:190px;object-fit:cover;border-radius:2px;background:#E8E0D0}
+.pol figcaption{margin-top:12px;text-align:center;font-style:italic;font-size:.95rem;line-height:1.45;color:var(--ink)}
+.pol figcaption b{display:block;font-family:var(--sans);font-style:normal;font-weight:800;font-size:.72rem;letter-spacing:.2em;color:var(--coral);margin-bottom:3px;text-transform:uppercase}
+
+/* Bộ đếm thời gian */
+.count{margin-top:70px;text-align:center}
+.count .lead{font-style:italic;font-size:1.05rem;line-height:1.6;color:#6B6358;max-width:300px;margin:0 auto 18px}
+.count .lead b{font-style:normal;color:var(--teal);font-family:var(--sans);font-weight:800;letter-spacing:.04em}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.cd div{background:var(--paper);border:1px solid rgba(61,90,54,.16);border-radius:14px;padding:16px 2px 12px;box-shadow:0 12px 26px rgba(60,45,30,.1)}
+.cd b{display:block;font-size:2.1rem;font-weight:800;line-height:1.1;color:var(--teal);font-variant-numeric:lining-nums tabular-nums}
+.cd span{display:block;margin-top:6px;font-style:italic;font-size:.95rem;color:var(--coral)}
+.count .since{margin-top:16px;font-family:var(--sans);font-weight:700;font-size:.8rem;letter-spacing:.14em;color:var(--mute)}
+@media(max-width:360px){.cd b{font-size:1.7rem}}
+/* Bóng lá đổ qua trang giấy */
+.shade{position:fixed;inset:0;z-index:20;pointer-events:none;overflow:hidden;mix-blend-mode:multiply}
+.sh{position:absolute;width:min(540px,100vw);height:auto;filter:blur(5px);opacity:.11;transform:rotate(var(--r0));transform-origin:0 0;animation:leafsway 9s ease-in-out infinite}
+.sh.a{--r0:0deg;top:-24px;left:-50px}
+.sh.b{--r0:180deg;bottom:-24px;right:-50px;left:auto;transform-origin:100% 100%;animation-delay:-4.5s}
+@keyframes leafsway{50%{transform:rotate(calc(var(--r0) + 3deg)) translateX(10px)}}
+/* Tách trà */
+.tea{text-align:center;margin-bottom:76px}
+.tea h2{font-size:1.9rem;font-weight:700;color:var(--teal);margin-bottom:6px;line-height:1.25}
+.teabtn{display:block;width:min(340px,100%);margin:0 auto;background:none;border:0;cursor:pointer;padding:0}
+.teabtn svg{width:100%;height:auto;overflow:visible}
+.teabtn:focus-visible{outline:3px solid var(--gold);outline-offset:6px;border-radius:16px}
+.teahint{font-family:var(--sans);font-weight:800;font-size:.84rem;letter-spacing:.16em;color:var(--coral);text-transform:uppercase}
+.liq{transform:translateY(80px)}
+.poured .liq{transform:none;transition:transform 2.4s cubic-bezier(.4,0,.2,1) 1.1s}
+.pot{opacity:0;transform-origin:0 0}
+.poured .pot{animation:pot 4s ease-in-out forwards}
+@keyframes pot{0%{opacity:0;transform:translate(50px,-8px) rotate(0deg)}14%{opacity:1;transform:translate(0,0) rotate(0deg)}26%,78%{opacity:1;transform:translate(0,0) rotate(-26deg)}92%{opacity:1;transform:translate(0,0) rotate(0deg)}100%{opacity:0;transform:translate(50px,-8px) rotate(0deg)}}
+.stream{opacity:0}
+.poured .stream{animation:strm 2.4s 1.05s forwards}
+@keyframes strm{0%{opacity:0}8%,90%{opacity:1}100%{opacity:0}}
+.steam path{opacity:0}
+.poured .steam path{animation:steam 3.4s ease-out 3.4s infinite}
+.poured .steam path:nth-child(2){animation-delay:4.1s}.poured .steam path:nth-child(3){animation-delay:4.8s}
+@keyframes steam{0%{opacity:0;transform:translateY(10px)}30%{opacity:.85}100%{opacity:0;transform:translateY(-26px)}}
+.msg{max-width:320px;margin:16px auto 0;font-style:italic;line-height:1.75;color:var(--teal);opacity:0;transform:translateY(8px);transition:opacity 1s 3.6s,transform 1s 3.6s}
+.teabtn.poured~.msg{opacity:1;transform:none}
+/* Mốc 1.000 ngày */
+.goal{margin-top:40px;padding-top:30px;border-top:1px dashed rgba(61,90,54,.28)}
+.count .goal .big{font-family:var(--serif);font-style:normal;font-size:2.5rem;font-weight:800;color:var(--coral);letter-spacing:0;display:inline-block;margin:0 4px;font-variant-numeric:lining-nums}
+.bar{height:11px;border-radius:99px;background:rgba(61,90,54,.14);overflow:hidden;max-width:340px;margin:0 auto}
+.bar i{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--sage),var(--gold));transition:width 1.8s ease}
+/* Ánh sáng theo buổi trong ngày */
+.tint{position:fixed;inset:0;z-index:19;pointer-events:none;mix-blend-mode:multiply;background:linear-gradient(180deg,var(--t1,#FDE7E1),var(--t2,#E6F0F7))}
+.sun{position:fixed;z-index:19;width:90vmax;height:90vmax;margin:-45vmax 0 0 -45vmax;pointer-events:none;left:8%;top:45%}
+/* Thanh giai đoạn của cây */
+.tlsub{text-align:center;font-style:italic;color:#6B6358;margin:0 auto 44px;max-width:300px;line-height:1.6}
+.stagechip{position:fixed;left:50%;bottom:16px;z-index:90;display:flex;align-items:center;gap:10px;padding:9px 16px;border-radius:99px;background:rgba(252,250,236,.94);border:1px solid rgba(61,90,54,.25);box-shadow:0 10px 24px rgba(60,45,30,.18);font-family:var(--sans);font-weight:800;font-size:.8rem;letter-spacing:.08em;color:var(--teal);opacity:0;transform:translate(-50%,16px);transition:opacity .5s,transform .5s;pointer-events:none}
+.stagechip.show{opacity:1;transform:translate(-50%,0)}
+.stagechip .dots{display:flex;gap:4px}
+.stagechip i{width:7px;height:7px;border-radius:50%;background:rgba(61,90,54,.2);transition:background .4s}
+.stagechip i.on{background:var(--coral)}
+/* Cây vân tay kết thúc */
+.finale{position:relative;z-index:10;text-align:center;color:var(--cream);padding:64px 20px 56px;background:radial-gradient(ellipse at 50% 28%,#4F7245,#27401F 78%)}
+.tree{position:relative;width:100%;max-width:400px;aspect-ratio:300/330;margin:0 auto 30px}
+.tree>svg{position:absolute;inset:0;width:100%;height:100%}
+.st{position:absolute;width:var(--s);height:var(--s);display:grid;place-items:center;border-radius:50%;transform:translate(-50%,-50%) rotate(var(--r)) scale(0);transition:transform .7s cubic-bezier(.34,1.56,.64,1) var(--d)}
+.st.on{transform:translate(-50%,-50%) rotate(var(--r)) scale(1)}
+.st .fp{width:78%;height:92%}
+.finale .thx{font-size:1.3rem;margin-bottom:26px}
+.finale .tt{font-style:italic;color:#A9C5A0;font-size:1.05rem;margin-bottom:8px}
+.finale .sig{font-family:'Dancing Script',cursive;font-weight:600;font-size:2.4rem;line-height:1.2}
+.finale .mark{display:block;margin:26px auto 0;font-size:2.8rem;color:var(--coral)}
+.petal{position:fixed;top:-8%;z-index:5;pointer-events:none;opacity:.55;animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(112vh) rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.node{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="fp" viewBox="0 0 40 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.3">
+<ellipse cx="20" cy="25" rx="2.5" ry="4"/><ellipse cx="20" cy="25" rx="6.5" ry="9.5" stroke-dasharray="20 4 12 5"/>
+<ellipse cx="20" cy="25" rx="10.5" ry="14.5" stroke-dasharray="30 5 16 6"/><ellipse cx="20" cy="25" rx="14.5" ry="19" stroke-dasharray="40 6 24 8"/>
+<ellipse cx="20" cy="25" rx="18" ry="22" stroke-dasharray="22 7 34 6"/></symbol></defs></svg>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="branch" viewBox="0 0 320 220" fill="#2F4A2A"><path d="M8 204C70 172 150 122 304 40" stroke="#2F4A2A" stroke-width="3" fill="none"/>
+<ellipse cx="44" cy="172" rx="30" ry="12" transform="rotate(-50 44 172)"/><ellipse cx="62" cy="186" rx="30" ry="12" transform="rotate(15 62 186)"/>
+<ellipse cx="96" cy="140" rx="32" ry="12" transform="rotate(-60 96 140)"/><ellipse cx="116" cy="162" rx="32" ry="12" transform="rotate(10 116 162)"/>
+<ellipse cx="150" cy="110" rx="32" ry="12" transform="rotate(-65 150 110)"/><ellipse cx="170" cy="134" rx="32" ry="12" transform="rotate(5 170 134)"/>
+<ellipse cx="206" cy="80" rx="30" ry="11" transform="rotate(-65 206 80)"/><ellipse cx="226" cy="102" rx="30" ry="11" transform="rotate(0 226 102)"/>
+<ellipse cx="262" cy="50" rx="28" ry="10" transform="rotate(-60 262 50)"/><ellipse cx="284" cy="68" rx="26" ry="10" transform="rotate(-5 284 68)"/></symbol></defs></svg>
+<div class="shade" aria-hidden="true"><svg class="sh a" viewBox="0 0 320 220"><use href="#branch"/></svg><svg class="sh b" viewBox="0 0 320 220"><use href="#branch"/></svg></div>
+<div class="tint" aria-hidden="true"></div><div class="sun" id="sun" aria-hidden="true"></div>
+<div class="stagechip" id="stagechip" aria-hidden="true"><span id="stageTxt">1/7 · Mầm</span><span class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+<audio id="bg" loop preload="auto"><source src="nhac.mp3" type="audio/mpeg"></audio>
+<button id="music" onclick="toggleMusic()" aria-label="Bật hoặc tắt nhạc">🎵</button>
+
+<div id="cover">
+  <h1 class="cv-title">Người gieo mầm xanh</h1>
+  <div class="glass">
+    <div class="dome">
+      <svg viewBox="0 0 250 330" aria-hidden="true">
+        <circle cx="125" cy="120" r="95" fill="#FFF7D6" opacity=".55"/>
+        <path class="soil" d="M30 330Q125 262 220 330Z" fill="#A97B50"/>
+        <path d="M62 301Q125 272 188 301Q125 289 62 301Z" fill="#8BC17A"/>
+        <g class="sprout">
+          <path d="M125 292C125 280 125 272 125 262" stroke="#5FAE5A" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M125 268C112 264 103 254 105 246C116 246 124 255 125 268Z" fill="#7DC36B"/>
+          <path d="M125 262C138 258 147 248 145 240C134 240 126 249 125 262Z" fill="#8FD18B"/>
+        </g>
+        <g id="treeG"></g>
+        <g class="cloud" fill="#fff" stroke="#CDE6F2" stroke-width="1.5"><circle cx="100" cy="46" r="16"/><circle cx="126" cy="38" r="20"/><circle cx="152" cy="47" r="15"/><rect x="100" y="44" width="52" height="18" rx="9" stroke="none"/></g>
+        <g id="rainG" fill="#5BB8E8"></g>
+      </svg>
+    </div>
+    <div class="base"><i class="knob"></i></div>
+  </div>
+  <button class="waterbtn" id="waterBtn" onclick="openCard()">
+    <svg viewBox="0 0 22 26" aria-hidden="true"><path d="M11 1C11 1 3 11 3 17a8 8 0 0016 0C19 11 11 1 11 1Z" fill="#5BB8E8" stroke="#2F8DBF" stroke-width="1.6"/><path d="M7.5 17a3.5 3.5 0 003 3.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+    <span id="waterTxt">Chạm để tưới cây</span>
+  </button>
+</div>
+
+<main class="page">
+  <header class="hero reveal">
+    <p class="quote">Mừng 20-11, kính tặng người đã để lại dấu ấn trong từng người chúng em</p>
+    <h2>Tách Trà Ấm<em>Bình Yên Sau Bục Giảng</em></h2>
+    <div class="to">
+      <span><span class="lab">Kính tặng</span>Cô Trần Nguyễn Thục Trang Anh</span>
+      <i class="dot"></i>
+      <span><span class="lab">Từ</span>Tập thể 12 Anh 1</span>
+    </div>
+    <div class="hint">Kéo xuống để đọc lời nhắn<b>↓</b></div>
+  </header>
+
+  <section class="reveal">
+    <div class="tag"><svg class="fp"><use href="#fp"/></svg>Lời nhắn gửi<svg class="fp"><use href="#fp"/></svg></div>
+    <article class="letter">
+      <svg class="sprig" viewBox="0 0 92 90" aria-hidden="true">
+        <path d="M10 88C24 66 40 44 66 30M42 52C52 50 62 52 74 56M52 40C58 34 64 24 70 16" stroke="#3D5A36" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+        <g><use href="#fp" x="58" y="2" width="20" height="24" color="#E3AC3B"/><use href="#fp" x="68" y="44" width="20" height="24" color="#B5702F"/><use href="#fp" x="26" y="38" width="18" height="22" color="#9A6B3F"/><use href="#fp" x="40" y="22" width="16" height="20" color="#8DAF6E"/></g>
+      </svg>
+      <h3>Gửi Cô Trần Nguyễn Thục Trang Anh</h3>
+      <p>Tháng Mười Một lại về, mang theo chút gió se lạnh đầu đông và gợi nhắc chúng em về hình ảnh quen thuộc với <span class="kw">tách trà ấm</span> bên bàn giáo viên. Dưới mái trường THPT Chuyên Trần Phú, chúng em thật may mắn khi được đồng hành cùng cô – người giáo viên chủ nhiệm tận tụy đã dẫn dắt tập thể 12 Anh 1 qua bao chặng đường đáng nhớ.</p>
+      <p>Chúng em vẫn nhớ những buổi chiều từ thuở đầu lớp 10, những lần cô trò cùng nhau kiên nhẫn giải quyết từng bài tập, hay cả những hôm tiếng trống tan trường đã điểm mà cô vẫn nán lại để tháo gỡ khó khăn cho chúng em. Giữa bộn bề công việc, nụ cười dịu dàng của cô sau mỗi giờ đứng lớp chính là hình ảnh đẹp nhất về sự <span class="kw">bình yên sau bục giảng</span> mà chúng em luôn trân trọng.</p>
+      <p>Cô ơi, giữa những ngày tháng tất bật vì học trò, mong cô cũng đừng quên dành thời gian cho chính mình. Hãy nhớ nhấp một ngụm trà ấm, nghỉ ngơi đôi chút sau những giờ lên lớp và luôn chăm sóc sức khỏe thật tốt cô nhé!</p>
+      <p>Nhân ngày Nhà giáo Việt Nam 20/11, tập thể 12 Anh 1 xin gửi tới cô lời tri ân chân thành nhất. Kính chúc cô luôn mạnh khỏe, hạnh phúc, vững tâm với nghề và có thật nhiều phút giây an yên trong cuộc sống.</p>
+      <p class="sign">Tập thể 12 Anh 1 kính tặng cô!</p>
+    </article>
+  </section>
+
+  <section class="tea reveal">
+    <div class="tag"><svg class="fp"><use href="#fp"/></svg>Một tách trà ấm<svg class="fp"><use href="#fp"/></svg></div>
+    <h2>Mời cô một tách trà</h2>
+    <button class="teabtn" id="teaBtn" onclick="pourTea()" aria-label="Rót trà vào tách">
+      <svg viewBox="0 0 300 240" aria-hidden="true">
+        <defs>
+          <clipPath id="cupClip"><path d="M84 118H216C216 166 194 196 150 196C106 196 84 166 84 118Z"/><ellipse cx="150" cy="118" rx="66" ry="10"/></clipPath>
+          <linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C9D98F"/><stop offset="1" stop-color="#7FA15A"/></linearGradient>
+        </defs>
+        <ellipse cx="150" cy="214" rx="98" ry="7" fill="rgba(61,90,54,.14)"/>
+        <ellipse cx="150" cy="206" rx="100" ry="15" fill="#fff" fill-opacity=".85" stroke="#D8C79E" stroke-width="2"/>
+        <ellipse cx="150" cy="204" rx="68" ry="8" fill="none" stroke="#E3D6B4" stroke-width="2"/>
+        <path d="M216 130C250 128 252 172 210 176" fill="none" stroke="#D8C79E" stroke-width="9" stroke-linecap="round"/>
+        <path d="M216 130C250 128 252 172 210 176" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M80 118H220C220 168 196 200 150 200C104 200 80 168 80 118Z" fill="rgba(255,255,255,.55)" stroke="#D8C79E" stroke-width="3"/>
+        <path class="stream" d="M146 60C147 100 148 150 148 188" stroke="#B9D07A" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <g clip-path="url(#cupClip)"><rect class="liq" x="70" y="124" width="160" height="90" fill="url(#tg)"/><ellipse class="liq" cx="150" cy="124" rx="66" ry="9" fill="#DCE8AE"/></g>
+        <g transform="translate(150 176)" fill="#8DAF6E" fill-opacity=".9"><path d="M0 0C-14-4-18-16-14-24C-4-20 2-10 0 0Z"/><path d="M0 0C14-4 18-16 14-24C4-20-2-10 0 0Z"/><path d="M0 0V8" stroke="#8DAF6E" stroke-width="2"/></g>
+        <ellipse cx="150" cy="118" rx="70" ry="11" fill="none" stroke="#D8C79E" stroke-width="3"/>
+        <g class="steam" fill="none" stroke="#B8A88A" stroke-width="3" stroke-linecap="round"><path d="M128 100C120 88 136 80 128 66"/><path d="M150 98C142 84 158 74 150 58"/><path d="M172 100C164 88 180 80 172 66"/></g>
+        <g transform="translate(205 62)"><g class="pot">
+          <path d="M32 -8C60 -14 62 20 30 14" fill="none" stroke="#5E7F46" stroke-width="6" stroke-linecap="round"/>
+          <path d="M-28 -6C-42 -8 -48 -20 -54 -29L-46 -33C-40 -24 -34 -22 -26 -24Z" fill="#7A9A5A" stroke="#3D5A36" stroke-width="2" stroke-linejoin="round"/>
+          <ellipse rx="34" ry="27" fill="#7A9A5A" stroke="#3D5A36" stroke-width="2"/>
+          <path d="M-16 -25Q0 -41 16 -25Z" fill="#8DAF6E" stroke="#3D5A36" stroke-width="2"/><circle cy="-41" r="4" fill="#E6B33C" stroke="#3D5A36" stroke-width="1.5"/>
+          <path d="M-20 4Q0 14 20 4" fill="none" stroke="#C9D98F" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        </g></g>
+      </svg>
+    </button>
+    <p class="teahint" id="teaHint">Chạm vào tách trà</p>
+    <p class="msg">“Xin gửi cô một ngụm trà ấm – mong cô luôn có thật nhiều phút giây bình yên sau mỗi giờ lên lớp.”</p>
+  </section>
+
+  <section class="tl">
+    <div class="tag reveal"><svg class="fp"><use href="#fp"/></svg>Sợi dây dòng thời gian<svg class="fp"><use href="#fp"/></svg></div>
+    <h2 class="reveal">Những Dấu Ấn Đáng Nhớ Bên Cô</h2>
+    <p class="tlsub reveal">Cuộn xuống để xem cái cây lớn dần theo từng mốc</p>
+    <div class="trail" id="trail">
+      <svg id="wire" aria-hidden="true"><path id="wb"/><path id="wp"/><path id="wm"/><path id="wt"/><g id="deco"></g></svg>
+      <figure class="node L"><span class="pin"></span><div class="pol"><img src="co1.jpg" alt="Mốc 01 - Những ngày đầu tiên" loading="lazy"><figcaption><b>Mốc 01</b>Những ngày đầu tiên...</figcaption></div></figure>
+      <figure class="node R"><span class="pin"></span><div class="pol"><img src="co2.jpg" alt="Mốc 02 - Khai giảng đầu tiên" loading="lazy"><figcaption><b>Mốc 02</b>Khai giảng đầu tiên</figcaption></div></figure>
+      <figure class="node L"><span class="pin"></span><div class="pol"><img src="co3.jpg" alt="Mốc 03 - Những kỉ niệm ngày 20/10" loading="lazy"><figcaption><b>Mốc 03</b>Những kỉ niệm ngày 20/10</figcaption></div></figure>
+      <figure class="node R"><span class="pin"></span><div class="pol"><img src="co4.jpg" alt="Mốc 04 - Sinh nhật cô cùng giáng sinh" loading="lazy"><figcaption><b>Mốc 04</b>Sinh nhật cô cùng giáng sinh</figcaption></div></figure>
+      <figure class="node L"><span class="pin"></span><div class="pol"><img src="co5.jpg" alt="Mốc 05 - Khai giảng lớp 11" loading="lazy"><figcaption><b>Mốc 05</b>Khai giảng lớp 11</figcaption></div></figure>
+      <figure class="node R"><span class="pin"></span><div class="pol"><img src="co6.jpg" alt="Mốc 06 - Người gieo mầm xanh" loading="lazy"><figcaption><b>Mốc 06</b>Người gieo mầm xanh</figcaption></div></figure>
+      <figure class="node L"><span class="pin"></span><div class="pol"><img src="co7.jpg" alt="Mốc 07 - Tri ân 20/11 - 12 Anh 1" loading="lazy"><figcaption><b>Mốc 07</b>Tri ân 20/11 - 12 Anh 1</figcaption></div></figure>
+    </div>
+    <div class="count reveal">
+      <p class="lead">Từ ngày đầu tiên gặp cô <b>05/08/2024</b><br>đến nay, chúng em đã được bên cô</p>
+      <div class="cd" id="cd" role="timer" aria-live="off">
+        <div><b>0</b><span>ngày</span></div>
+        <div><b>0</b><span>giờ</span></div>
+        <div><b>0</b><span>phút</span></div>
+        <div><b>0</b><span>giây</span></div>
+      </div>
+      <p class="since">và vẫn đang đếm tiếp</p>
+      <div class="goal">
+        <p class="lead" id="gLead"></p>
+        <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="1000"><i id="gBar"></i></div>
+        <p class="since" id="gSub"></p>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+<section class="finale" id="finale">
+  <div class="tree" id="tree">
+    <svg viewBox="0 0 300 330" aria-hidden="true">
+      <ellipse cx="150" cy="308" rx="80" ry="6" fill="rgba(0,0,0,.18)"/>
+      <path d="M116 306C128 262 134 222 130 188L122 164 150 178 178 164 170 188C166 222 172 262 184 306Z" fill="#F6F0E4" stroke="#F6F0E4" stroke-width="3" stroke-linejoin="round"/>
+      <g fill="none" stroke="#F6F0E4" stroke-linecap="round">
+        <path d="M135 192C120 166 98 148 80 118" stroke-width="8"/><path d="M80 118C72 100 66 90 58 74" stroke-width="4"/><path d="M80 118C92 100 98 88 100 70" stroke-width="3"/>
+        <path d="M150 182C150 140 150 100 152 52" stroke-width="7"/>
+        <path d="M165 192C185 166 205 150 224 118" stroke-width="8"/><path d="M224 118C232 100 240 90 246 74" stroke-width="4"/><path d="M224 118C214 102 206 90 204 72" stroke-width="3"/>
+        <path d="M150 122C132 102 124 86 118 64" stroke-width="3"/><path d="M152 112C170 94 180 80 186 62" stroke-width="3"/>
+        <path d="M92 307Q150 299 208 307" stroke-width="5"/>
+      </g>
+    </svg>
+  </div>
+  <p class="thx">Thân ái và trân trọng.</p>
+  <p class="tt">Trân trọng,</p>
+  <p class="sig">Tập thể 12 Anh 1</p>
+  <svg class="fp mark" aria-hidden="true"><use href="#fp"/></svg>
+</section>
+
+<script>
+const $=s=>document.querySelector(s),bg=$('#bg'),mbtn=$('#music');let playing=false;
+
+let opened=false;
+function openCard(){
+  if(opened)return;opened=true;
+  bg.play().then(()=>{playing=true;mbtn.textContent='🎵'}).catch(()=>{playing=false;mbtn.textContent='🔇'});
+  $('#cover').classList.add('grow');
+  $('#waterBtn').disabled=true;$('#waterTxt').textContent='Cây đang lớn…';
+  setTimeout(()=>{$('#cover').classList.add('hide');mbtn.style.display='grid';petals();layout()},3800);
+}
+/* Dựng cái cây trong chuông thủy tinh */
+(function(){
+  const br=[['M125 292C123 262 127 228 125 196',9,0.5],['M125 214C108 202 92 190 80 166',6,1.2],['M125 206C142 194 158 182 170 158',6,1.3],['M125 196C116 172 112 152 108 128',5,1.6],['M125 190C134 166 140 146 144 122',5,1.7],['M125 192C125 160 125 130 125 104',5,1.8],['M80 166C74 156 70 148 66 136',3,2],['M170 158C176 148 180 140 184 128',3,2],['M108 128C104 118 100 112 96 104',3,2.1],['M144 122C148 114 152 108 156 100',3,2.1]];
+  const lv=[[66,130,17,'#6DBE6A'],[84,152,19,'#4FA85F'],[98,116,18,'#8FD18B'],[100,96,16,'#6DBE6A'],[125,88,20,'#4FA85F'],[152,96,17,'#8FD18B'],[156,118,18,'#6DBE6A'],[172,142,19,'#4FA85F'],[186,122,16,'#8FD18B'],[178,168,16,'#6DBE6A'],[70,160,16,'#8FD18B'],[112,142,18,'#4FA85F'],[140,140,18,'#8FD18B'],[125,120,19,'#6DBE6A'],[88,178,14,'#4FA85F'],[162,180,14,'#8FD18B'],[125,152,17,'#4FA85F']];
+  let h=br.map(([d,w,t])=>`<path class="tp" pathLength="1" d="${d}" stroke-width="${w}" style="--d:${t}s"/>`).join('');
+  h+=lv.map(([x,y,r,c],i)=>`<circle class="lf" cx="${x}" cy="${y}" r="${r}" fill="${c}" style="--d:${(1.7+i*.06).toFixed(2)}s"/>`).join('');
+  $('#treeG').innerHTML=h;
+  $('#rainG').innerHTML=[96,108,120,132,144,156,114,138,126,102].map((x,i)=>`<path class="rd" d="M0 0C-3 5-4 8 0 9C4 8 3 5 0 0Z" style="--x:${x}px;--d:${(i*.12).toFixed(2)}s"/>`).join('');
+})();
+
+function toggleMusic(){
+  if(playing){bg.pause();mbtn.textContent='🔇'}else{bg.play();mbtn.textContent='🎵'}
+  playing=!playing;
+}
+function petals(){
+  const s=['🍃','🌸','✨'];
+  for(let i=0;i<10;i++){const e=document.createElement('div');e.className='petal';e.textContent=s[i%3];
+    e.style.cssText=`left:${Math.random()*94}vw;font-size:${13+Math.random()*9}px;animation-duration:${8+Math.random()*6}s;animation-delay:${Math.random()*5}s`;
+    document.body.appendChild(e)}
+}
+
+/* Hiện dần khi cuộn */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal,.node').forEach(el=>io.observe(el));
+
+/* Sợi dây: vẽ dần theo lúc cuộn, mỗi ảnh được "ghim" vào dây */
+const trail=$('#trail'),wb=$('#wb'),wp=$('#wp'),wire=$('#wire'),pins=[...trail.querySelectorAll('.pin')];
+const wm=$('#wm'),wt=$('#wt'),deco=$('#deco'),NS='http://www.w3.org/2000/svg',chip=$('#stagechip'),chipDots=[...chip.querySelectorAll('i')],chipTxt=$('#stageTxt');
+const STAGES=['Mầm','Thân','Cành','Lá','Nụ','Hoa','Nở rộ'],LEAF='M0 0C5-5 15-6 24 0C15 6 5 5 0 0Z';
+const GREENS=['#6DBE6A','#8FD18B','#4FA85F','#A5D77A'],PETALS=['#F6D86B','#FFF3C4','#F2B766','#FFE08A'];
+let len=0,ys=[],decos=[],lastSt=-1;
+const mk=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e};
+const flower=(col,r)=>{const g=mk('g',{class:'df'});for(let k=0;k<5;k++)g.appendChild(mk('ellipse',{cx:0,cy:-r*.62,rx:r*.38,ry:r*.62,fill:col,transform:`rotate(${k*72})`}));g.appendChild(mk('circle',{r:r*.3,fill:'#B5702F'}));return g};
+
+function layout(){
+  const c=trail.getBoundingClientRect();
+  wire.setAttribute('viewBox',`0 0 ${c.width} ${c.height}`);
+  const p=pins.map(n=>{const r=n.getBoundingClientRect();return{x:r.left-c.left+r.width/2,y:r.top-c.top+r.height/2}});
+  let d=`M${p[0].x} ${p[0].y-40}L${p[0].x} ${p[0].y}`;
+  for(let i=1;i<p.length;i++){const a=p[i-1],b=p[i],k=(b.y-a.y)*.62;d+=`C${a.x} ${a.y+k} ${b.x} ${b.y-k} ${b.x} ${b.y}`}
+  [wb,wp,wm,wt].forEach(e=>e.setAttribute('d',d));
+  len=wp.getTotalLength();[wp,wm,wt].forEach(e=>e.style.strokeDasharray=len);
+  ys=p.map(q=>q.y);build();progress();
+}
+
+/* Rải lá, cành, nụ, hoa dọc thân; mỗi thứ chỉ hiện khi cây đủ giai đoạn và ngọn đã vươn tới */
+function build(){
+  deco.textContent='';decos=[];
+  const at=s=>{const a=wp.getPointAtLength(s),b=wp.getPointAtLength(Math.min(len,s+2));return{x:a.x,y:a.y,a:Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI}};
+  const add=(el,s,min,max,big)=>decos.push({el,s,min,max,big});
+  const leaf=(g,x,y,ang,sc,col,s,min)=>{const w=mk('g',{transform:`translate(${x} ${y}) rotate(${ang})`}),l=mk('path',{d:LEAF,class:'dl',style:`fill:${col};--sc:${sc}`});w.appendChild(l);g.appendChild(w);add(l,s,min)};
+  const t0=at(0);
+  [-1,1].forEach(sd=>leaf(deco,t0.x,t0.y,t0.a+sd*62,1.5,'#7BD36F',0,0));
+  let n=0;
+  for(let s=60;s<len-6;s+=42,n++){
+    const t=at(s),sd=n%2?1:-1;
+    leaf(deco,t.x,t.y,t.a+sd*58,.9+(n%3)*.15,GREENS[n%4],s,3);
+    if(n%3===1){
+      const g=mk('g',{transform:`translate(${t.x} ${t.y}) rotate(${t.a-sd*52})`}),tw=mk('path',{d:'M0 0C12-3 30-2 44 9',class:'dt',pathLength:1});
+      g.appendChild(tw);add(tw,s,2);
+      const ml=mk('g',{transform:'translate(20 -1) rotate(-48)'}),mp=mk('path',{d:LEAF,class:'dl',style:'fill:#8FD18B;--sc:.8'});ml.appendChild(mp);g.appendChild(ml);add(mp,s+20,3);
+      const tl=mk('g',{transform:'translate(44 9) rotate(15)'}),tp=mk('path',{d:LEAF,class:'dl',style:'fill:#6DBE6A;--sc:.9'});tl.appendChild(tp);g.appendChild(tl);add(tp,s+40,3);
+      const bud=mk('circle',{cx:44,cy:9,r:4.2,class:'db',fill:'#A5D77A'});g.appendChild(bud);add(bud,s+40,4,4);
+      const fw=mk('g',{transform:'translate(44 9)'}),f=flower(PETALS[n%4],10);fw.appendChild(f);g.appendChild(fw);add(f,s+40,5,null,true);
+      deco.appendChild(g);
+    }
+    if(n%3===0&&n>2){
+      const g=mk('g',{transform:`translate(${t.x} ${t.y}) rotate(${t.a})`}),fw=mk('g',{transform:`translate(10 ${sd*9})`}),f=flower(PETALS[(n+1)%4],7);
+      fw.appendChild(f);g.appendChild(fw);deco.appendChild(g);add(f,s,6,null,true);
+    }
+  }
+}
+
+function progress(){
+  const c=trail.getBoundingClientRect(),y=Math.min(c.height,Math.max(0,innerHeight*.62-c.top)),tip=len*y/c.height;
+  const on=ys.map(v=>v<=y+4),cnt=on.filter(Boolean).length,st=cnt?cnt-1:0,act=c.top<innerHeight*.8;
+  pins.forEach((e,i)=>e.classList.toggle('on',on[i]));
+  wp.style.strokeDashoffset=len-tip;
+  wm.style.strokeDashoffset=len-(st>=1?Math.max(0,tip-120):0);
+  wt.style.strokeDashoffset=len-(st>=2?Math.max(0,tip-300):0);
+  decos.forEach(d=>{d.el.classList.toggle('on',(d.s>0||act)&&tip>=d.s&&st>=d.min&&(d.max==null||st<=d.max));if(d.big)d.el.classList.toggle('big',st>=6)});
+  chip.classList.toggle('show',c.top<innerHeight*.7&&c.bottom>innerHeight*.35);
+  if(st!==lastSt){lastSt=st;chipTxt.textContent=`${st+1}/7 · ${STAGES[st]}`;chipDots.forEach((e,k)=>e.classList.toggle('on',k<=st))}
+}
+addEventListener('scroll',progress,{passive:true});
+addEventListener('resize',layout);addEventListener('load',layout);
+new ResizeObserver(layout).observe(trail);
+layout();
+
+/* Bộ đếm thời gian thực từ 05/08/2024 */
+const t0=new Date('2024-08-05T00:00:00+07:00').getTime(),cdEls=[...document.querySelectorAll('#cd b')];
+const goalDate=new Date(t0+1000*864e5).toLocaleDateString('en-GB',{timeZone:'Asia/Ho_Chi_Minh'});
+function tick(){
+  const d=Math.max(0,Math.floor((Date.now()-t0)/1000));
+  const days=Math.floor(d/86400);
+  [days,Math.floor(d%86400/3600),Math.floor(d%3600/60),d%60].forEach((v,i)=>{cdEls[i].textContent=v});
+  const rem=1000-days;
+  $('#gLead').innerHTML=rem>0?`Còn <b class="big">${rem}</b> ngày nữa là tròn <b>1.000 ngày</b> bên cô`:rem===0?'Hôm nay tròn <b>1.000 ngày</b> bên cô!':'Đã tròn <b>1.000 ngày</b> bên cô và vẫn đang đếm tiếp!';
+  $('#gBar').style.width=Math.min(100,days/10)+'%';
+  $('#gSub').textContent=`Tròn 1.000 ngày vào ${goalDate} · đã đi được ${Math.min(days,1000)}/1000 ngày`;
+}
+tick();setInterval(tick,1000);
+
+/* Ánh sáng đổi theo buổi: sáng sớm → nắng sáng → chiều muộn → hoàng hôn */
+const SK=[[0,[253,231,225],[230,240,247],[255,205,205,.3]],[.35,[255,246,207],[242,247,220],[255,236,150,.35]],[.7,[255,217,154],[255,233,194],[255,185,95,.4]],[1,[246,169,138],[185,163,201],[255,120,90,.4]]];
+const root=document.documentElement,sunEl=$('#sun');let skyReq=0;
+function sky(){
+  const p=Math.min(1,Math.max(0,scrollY/Math.max(1,root.scrollHeight-innerHeight)));
+  let i=0;while(i<SK.length-2&&p>SK[i+1][0])i++;
+  const a=SK[i],b=SK[i+1],t=Math.min(1,Math.max(0,(p-a[0])/(b[0]-a[0]))),mix=(x,y)=>x.map((v,k)=>v+(y[k]-v)*t);
+  const c1=mix(a[1],b[1]).map(Math.round),c2=mix(a[2],b[2]).map(Math.round),sc=mix(a[3],b[3]);
+  root.style.setProperty('--t1',`rgb(${c1})`);root.style.setProperty('--t2',`rgb(${c2})`);
+  sunEl.style.background=`radial-gradient(circle,rgba(${Math.round(sc[0])},${Math.round(sc[1])},${Math.round(sc[2])},${sc[3].toFixed(2)}) 0,transparent 55%)`;
+  sunEl.style.left=(8+84*p)+'%';sunEl.style.top=(45-55*Math.sin(Math.PI*p))+'%';
+}
+addEventListener('scroll',()=>{if(!skyReq)skyReq=requestAnimationFrame(()=>{skyReq=0;sky()})},{passive:true});
+addEventListener('resize',sky);sky();
+
+/* Rót trà */
+let poured=false;
+function pourTea(){
+  if(poured)return;poured=true;
+  $('#teaBtn').classList.add('poured');
+  $('#teaHint').textContent='Trà đang được rót…';
+  setTimeout(()=>{$('#teaHint').textContent='Mời cô dùng trà'},3800);
+}
+
+/* Cây vân tay: nở dần khi cuộn tới cuối trang */
+const cols=['#EFC96A','#D99A5B','#A9C48A','#C8DB9E','#F1E2B0','#C98B6B'];
+let seed=7;const rnd=()=>(seed=seed*16807%2147483647)/2147483647;
+const discs=Array.from({length:30},(_,i)=>{
+  const r=Math.sqrt((i+.6)/30),a=i*2.39996+rnd()*.5,c=cols[i%6],e=document.createElement('div');
+  e.className='st';
+  e.style.cssText=`left:${50+40*r*Math.cos(a)}%;top:${31+25*r*Math.sin(a)}%;--s:${34+rnd()*18}px;--r:${rnd()*60-30}deg;--d:${i*70}ms;color:${c};background:${c}40;box-shadow:0 0 14px ${c}55`;
+  e.innerHTML='<svg class="fp"><use href="#fp"/></svg>';
+  $('#tree').appendChild(e);return e});
+new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){discs.forEach(e=>e.classList.add('on'));o.disconnect()}},{threshold:.35}).observe($('#finale'));
+</script>
+</body>
+</html>
